@@ -114,3 +114,59 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker({ articleObj }) {
+  const panelArticle = document.createElement("div");
+  const panelTitle = document.createElement("h2")
+  const panelP1 = document.createElement("p")
+  const panelP2 = document.createElement("p")
+  const panelP3 = document.createElement("p")
+  const panelSpan = document.createElement("span")
+  /*
+  <div class="article">
+    <h2>{title of the article}</h2>
+    <p class="date">{date of the article}</p>
+
+    {three separate paragraph elements}
+
+    <span class="expandButton">+</span>
+  </div>
+  */
+
+  //create
+  panelArticle.appendChild("panelTitle")
+  panelArticle.appendChild("panelP1")
+  panelArticle.appendChild("panelP2")
+  panelArticle.appendChild("panelP3")
+  panelArticle.appendChild("panelSpan")
+
+
+  //name them
+  panelArticle.classList.add("article");
+  panelP1.classList.add("date");
+  panelP2.classList.add("date");
+  panelP3.classList.add("date");
+  panelSpan.classList.add("expandButton");
+
+
+
+  //add text context
+  panelTitle.textContent = title;
+
+  return panelArticle
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
