@@ -88,7 +88,7 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
-
+const articles = document.querySelector(".articles");
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
@@ -116,7 +116,7 @@ const data = [
 */
 
 function articleMaker({ articleObj }) {
-  const panelArticle = document.createElement("div");
+  // const panelArticle = document.createElement("div");
   const panelTitle = document.createElement("h2")
   const panelP1 = document.createElement("p")
   const panelP2 = document.createElement("p")
@@ -134,15 +134,16 @@ function articleMaker({ articleObj }) {
   */
 
   //create
-  panelArticle.appendChild("panelTitle")
-  panelArticle.appendChild("panelP1")
-  panelArticle.appendChild("panelP2")
-  panelArticle.appendChild("panelP3")
-  panelArticle.appendChild("panelSpan")
+  articles.appendChild("panelTitle")
+  articles.appendChild("panelP1")
+  articles.appendChild("panelP2")
+  articles.appendChild("panelP3")
+  articles.appendChild("panelSpan")
 
 
   //name them
-  panelArticle.classList.add("article");
+  // panelArticle.classList.add("article");
+  panelTitle.classList.add("title")
   panelP1.classList.add("date");
   panelP2.classList.add("date");
   panelP3.classList.add("date");
@@ -151,22 +152,19 @@ function articleMaker({ articleObj }) {
 
 
   //add text context
-  panelTitle.textContent = title;
+  // article.textContent = articleObj;
 
-  return panelArticle
+  return articles;
 
+};
 
+// const test = articleMaker({ title: "test", date: "test", firstParagraph: "test", secondParagraph: "test", thirdParagraph: "test" });
+// articles.appendChild(test);
 
+const panelElements = data.map((panelData) => {
+  return articleMaker(panelData);
+});
 
-
-
-
-
-
-
-
-
-
-
-
-}
+panelElements.forEach((panelElement) => {
+  articles.appendChild(panelElement);
+});
