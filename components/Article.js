@@ -88,7 +88,7 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
-const articles = document.querySelector(".articles");
+
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
@@ -115,7 +115,7 @@ const articles = document.querySelector(".articles");
   Refresh the page to see the new article.
 */
 
-function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParagraph, articleObj }) {
+function articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph) {
   const panelArticle = document.createElement("div");
   const panelTitle = document.createElement("h2");
   const panelParaDate = document.createElement("p");
@@ -156,12 +156,21 @@ function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParag
 
   //add text context
 
-  panelArticle.textContent = articleObj;
+
   panelTitle.textContent = title;
   panelParaDate.textContent = date;
   panelP1.textContent = firstParagraph;
   panelP2.textContent = secondParagraph;
   panelP3.textContent = thirdParagraph;
+  panelSpan.textContent = "\u25BC"
+
+  panelSpan.addEventListener("click", e => {
+    // openButton.classList.toggle("hide-btn");
+    // closeButton.classList.toggle("hide-btn");
+    // panelContent.classList.toggle("toggle-on");
+
+    panelArticle.classList.toggle("article-open");
+  });
 
   return panelArticle;
 
@@ -169,11 +178,17 @@ function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParag
 
 // const test = articleMaker({ title: "test", date: "test", firstParagraph: "test", secondParagraph: "test", thirdParagraph: "test" });
 // articles.appendChild(test);
+const panelArticle = document.querySelector(".articles");
 
-const panelElements = data.map((panelData) => {
-  return articleMaker(panelData);
+// panelArticle.appendChild(articleMaker());
+
+// const inputs = data.map((panelData) => {
+//   return articleMaker(panelData);
+// });
+
+data.forEach(input => {
+  panelArticle.appendChild(articleMaker(input.title, input.date, input.firstParagraph, input.secondParagraph, input.thirdParagraph));
+  // panelArticle.appendChild(input);
 });
 
-panelElements.forEach((panelElement) => {
-  articles.appendChild(panelElement);
-});
+
