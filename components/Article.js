@@ -116,12 +116,12 @@ const articles = document.querySelector(".articles");
 */
 
 function articleMaker({ articleObj }) {
-  // const panelArticle = document.createElement("div");
-  const panelTitle = document.createElement("h2")
-  const panelP1 = document.createElement("p")
-  const panelP2 = document.createElement("p")
-  const panelP3 = document.createElement("p")
-  const panelSpan = document.createElement("span")
+  const panelArticle = document.createElement("div");
+  const panelTitle = document.createElement("h2");
+  const panelP1 = document.createElement("p");
+  const panelP2 = document.createElement("p");
+  const panelP3 = document.createElement("p");
+  const panelSpan = document.createElement("span");
   /*
   <div class="article">
     <h2>{title of the article}</h2>
@@ -134,16 +134,17 @@ function articleMaker({ articleObj }) {
   */
 
   //create
-  articles.appendChild("panelTitle")
-  articles.appendChild("panelP1")
-  articles.appendChild("panelP2")
-  articles.appendChild("panelP3")
-  articles.appendChild("panelSpan")
+
+  panelArticle.appendChild(panelTitle);
+  panelArticle.appendChild(panelP1);
+  panelArticle.appendChild(panelP2);
+  panelArticle.appendChild(panelP3);
+  panelArticle.appendChild(panelSpan);
 
 
   //name them
-  // panelArticle.classList.add("article");
-  panelTitle.classList.add("title")
+  panelArticle.classList.add("article");
+  panelTitle.classList.add("title");
   panelP1.classList.add("date");
   panelP2.classList.add("date");
   panelP3.classList.add("date");
@@ -154,9 +155,9 @@ function articleMaker({ articleObj }) {
   //add text context
   // article.textContent = articleObj;
 
-  return articles;
+  return panelArticle;
 
-};
+}
 
 // const test = articleMaker({ title: "test", date: "test", firstParagraph: "test", secondParagraph: "test", thirdParagraph: "test" });
 // articles.appendChild(test);
