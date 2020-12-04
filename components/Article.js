@@ -115,9 +115,10 @@ const articles = document.querySelector(".articles");
   Refresh the page to see the new article.
 */
 
-function articleMaker({ articleObj }) {
+function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParagraph, articleObj }) {
   const panelArticle = document.createElement("div");
   const panelTitle = document.createElement("h2");
+  const panelParaDate = document.createElement("p");
   const panelP1 = document.createElement("p");
   const panelP2 = document.createElement("p");
   const panelP3 = document.createElement("p");
@@ -136,6 +137,7 @@ function articleMaker({ articleObj }) {
   //create
 
   panelArticle.appendChild(panelTitle);
+  panelArticle.appendChild(panelParaDate);
   panelArticle.appendChild(panelP1);
   panelArticle.appendChild(panelP2);
   panelArticle.appendChild(panelP3);
@@ -144,16 +146,22 @@ function articleMaker({ articleObj }) {
 
   //name them
   panelArticle.classList.add("article");
-  panelTitle.classList.add("title");
-  panelP1.classList.add("date");
-  panelP2.classList.add("date");
-  panelP3.classList.add("date");
+  // panelTitle.classList.add("title");
+  panelParaDate.classList.add("date");
+  // panelP1.classList.add("date");
+  // panelP2.classList.add("date");
+  // panelP3.classList.add("date");
   panelSpan.classList.add("expandButton");
 
 
-
   //add text context
-  // article.textContent = articleObj;
+
+  panelArticle.textContent = articleObj;
+  panelTitle.textContent = title;
+  panelParaDate.textContent = date;
+  panelP1.textContent = firstParagraph;
+  panelP2.textContent = secondParagraph;
+  panelP3.textContent = thirdParagraph;
 
   return panelArticle;
 
